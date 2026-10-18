@@ -1,47 +1,47 @@
-Yehor Havryleichenko Elektro-Bud -wstępny opis potrzeb klienta
+Yehor Havryleichenko – Elektro-Bud
 
-Analiza:
+Wstępny opis potrzeb klienta
 
+Analiza
 
-Wymagania funkcjonalne:
+Wymagania funkcjonalne
 
-01 - Zarządzanie kontami: System umożliwia tworzenie, usuwanie, modyfikowanie kont pracowników, resetowanie haseł i przypisanie ról w systemie
+WF01 – Logowanie: System pozwala użytkownikom logować się na indywidualne konta za pomocą loginu i hasła.
 
-02 - Zarządzanie produktami: System umożliwia dodawanie, edycję oraz usuwanie produktów które mają swoje specyfikacje - nazwę, kategorię, kod EAN, lokalizację - S(sektor), R(regał), P(półka)
+WF02 – Wyszukiwanie towaru: System umożliwia wyszukiwanie produktów według nazwy, kodu EAN, kategorii oraz lokalizacji magazynowej.
 
-03 - Walidacja stanów magazynowych: System blokuje próby zatwierdzenia wydania towaru, jeżeli jego ilość przekracza ilośc dostępnego produktu w sklepie
+WF03 – Zarządzanie produktami: System umożliwia dodawanie, edytowanie i usuwanie produktów wraz z ich danymi, takimi jak nazwa, kategoria, kod EAN oraz lokalizacja (S – sektor, R – regał, P – półka).
 
-04 - Przyjęcie dostawy: System umożliwia rejestrację przyjęcia towaru(identyfikator, ilość, datę, pracownika który przyjął) i automatycznie zwiększa ilość towaru
+WF04 – Przyjęcie dostawy: System pozwala rejestrować przyjęcie towaru, zapisując jego identyfikator, ilość, datę oraz pracownika odpowiedzialnego za przyjęcie. Stan magazynowy produktu zostaje automatycznie zwiększony.
 
-05 - Wydanie towaru: System rejestruje wydanie towaru do klienta(identyfikator towaru, ilość, data, pracownik który oddał)
+WF05 – Historia operacji: System automatycznie zapisuje wszystkie operacje przyjęcia i wydania towarów, uwzględniając datę, godzinę, identyfikator użytkownika, typ zdarzenia, produkt oraz jego ilość.
 
-06 - Wyszukiwanie towaru: System umożliwia wyszukiwanie towaru poprzez kod EAN, nazwę, kategorię, lokalizację
+WF06 – Zarządzanie kontami użytkowników: System umożliwia tworzenie, edytowanie i usuwanie kont pracowników, resetowanie haseł oraz przypisywanie odpowiednich ról.
 
-07 - Obsługa współbieżności operacji: System weryfikuje dostępność produktów w czasie rzeczywistym podczas prób wydania tego samego towaru przez wielu pracowników
+WF07 – Wydanie towaru: System umożliwia rejestrowanie wydań produktów klientom, zapisując identyfikator towaru, wydaną ilość, datę oraz pracownika realizującego operację.
 
-08 - Historia zdarzeń: System automatycznie rejestruje każde przyjęcie, wydanie towaru zapisując czas, datę, identyfikator użytkownika, rodzaj zdarzenia, produkt, ilość produktu
+WF08 – Kontrola stanów magazynowych: System uniemożliwia zatwierdzenie wydania, jeśli żądana ilość towaru jest większa niż jego aktualna dostępność w magazynie.
 
-09 - Przegłąd i generowanie raportów: System umożliwia generowanie i przeglądanie raportów dotyczących aktualnych stanów magazynowych
+WF09 – Raportowanie: System umożliwia przeglądanie i generowanie raportów przedstawiających aktualne stany magazynowe.
 
-10 - Logowanie: System umożliwia logowanie użytkownika przy użyciu indywidualnego konta poprzez login i hasło
+WF10 – Obsługa jednoczesnych operacji: System sprawdza aktualną dostępność produktów w czasie rzeczywistym, gdy kilku pracowników próbuje wydać ten sam towar.
 
-Wymagania niefunkcjonalne:
+Wymagania niefunkcjonalne
 
-01 - Dostępność: System wykazuje dostępność na poziomie minimum (99,5%) w godzinach pracy magazynu hurtowni.
+WNF01 – Bezpieczeństwo: Dostęp do poszczególnych funkcji systemu jest kontrolowany za pomocą ról, a każdy użytkownik musi posiadać własne, unikalne konto.
 
-02 - Sposób korzystania z systemu (Użyteczność): Interfejs użytkownika jest prosty i umożliwiający szybkie zarejestrowanie przyjęcia, wydania towaru
+WNF02 – Wydajność: Czas odpowiedzi systemu podczas wyszukiwania produktów, odczytu kodu EAN oraz rejestrowania operacji nie powinien przekraczać 1–2 sekund przy typowym obciążeniu.
 
-03 - Spójność danych: System zapewnia bazę danych
+WNF03 – Użyteczność: Interfejs systemu powinien być przejrzysty i prosty w obsłudze, aby umożliwić szybkie rejestrowanie przyjęć oraz wydań towarów.
 
-04 - Bezpieczeństwo: Dostęp do funkcji systemu jest ograniczony za pomocą ról, każdy użytkownik musi posiadać osobiste, unikalne konto
+WNF04 – Spójność danych: System powinien korzystać z bazy danych zapewniającej poprawność, spójność i wiarygodność przechowywanych informacji.
 
+WNF05 – Dostępność: System powinien zapewniać dostępność na poziomie co najmniej 99,5% w godzinach pracy magazynu hurtowni.
 
-05 - Czas odpowiedzi systemu podczas wyszukiwania produktu, odczytu kodu EAN oraz rejestracji operacji nie może przekraczać 1–2 sekund w typowych warunkach obciążenia.
+Aktorzy
 
-Aktorzy:
+Kierownik magazynu: Odpowiada za kontrolowanie gospodarki magazynowej. Może dodawać nowe produkty, aktualizować informacje o asortymencie, sprawdzać bieżące stany magazynowe oraz generować raporty.
 
-Kierownik magazynu: Odpowiada za nadzór nad gospodarką magazynową. Dodaje nowe produkty do bazy, zarządza danymi asortymentu, monitoruje bieżące stany magazynowe oraz generuje raporty.
+Pracownik magazynu: Zajmuje się fizyczną obsługą towarów. Korzystając z systemu, wyszukuje produkty, sprawdza ich położenie, rejestruje przyjęcia dostaw i wydania towarów do zamówień.
 
-Pracownik magazynu - Odpowiada za fizyczną obsługę towaru. W systemie wyszukuje produkty, sprawdza ich lokalizację, rejestruje przyjęcia dostaw oraz wydania towaru do zamówień.
-
-Administrator: Odpowiada za utrzymanie systemu i bezpieczeństwo dostępów. Zakłada i edytuje konta użytkowników, usuwa  konta, zarządza uprawnieniami oraz wykonuje reset haseł.
+Administrator: Odpowiada za prawidłowe działanie systemu oraz zarządzanie dostępem. Tworzy i edytuje konta użytkowników, usuwa konta, przydziela uprawnienia i resetuje hasła.
