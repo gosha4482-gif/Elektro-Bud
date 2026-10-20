@@ -1,36 +1,36 @@
 Wymagania funkcjonalne=wf
 
-WF-01 – Uwierzytelnianie użytkowników: Aplikacja pozwala na dostęp do systemu po podaniu indywidualnego loginu oraz hasła.
+WF-01 – aplikacja pozwala na dostep do systemu po wpisaniu hasla i loginu
 
-WF-02 – Ewidencja asortymentu: System daje możliwość tworzenia nowych pozycji towarowych, aktualizowania ich danych oraz usuwania produktów z bazy. Każdy produkt posiada nazwę, kategorię, numer EAN oraz oznaczenie miejsca przechowywania (S – sektor, R – regał, P – półka).
+WF-02 – tworzenie nowych towarow i aktualizacja ,wszystkie towary mają EAN numer oraz mijesce np.: (S – sektor, R – regał, P – półka).
 
-WF-03 – Wyszukiwanie produktów: Użytkownik może odnaleźć wybrany towar, korzystając z jego nazwy, numeru EAN, przypisanej kategorii lub informacji o lokalizacji magazynowej.
+WF-03 – Użytkownik może odnalezc wybrany towar, korzystając z jego nazwy, numeru EAN, przypisanej kategorii lub informacji o miejscu przechowywania
 
 WF-04 – Rejestrowanie dostaw: Podczas przyjmowania towaru system zapisuje dane produktu, liczbę przyjętych sztuk, datę operacji oraz dane pracownika odpowiedzialnego za jej wykonanie. Po zatwierdzeniu dostawy stan magazynowy zostaje odpowiednio zwiększony.
 
-WF-05 – Ewidencja wydań: Program umożliwia zapisywanie operacji przekazania produktów klientom. Rejestrowane są informacje o wydanym towarze, jego ilości, dacie wydania oraz pracowniku realizującym operację.
+WF-05 – informacja/rejesracja towaru i wydanie produtku klientu informacje o towarze :ilosc,data wydania
 
-WF-06 – Sprawdzanie dostępności towarów: System nie pozwala zatwierdzić wydania, jeśli liczba sztuk wskazana w operacji jest większa od aktualnego stanu magazynowego.
+WF-06 – automatyczne sprawdzanie towary żeby klient nie zamowil by wiecej towaru niz jest na magazynie
 
-WF-07 – Kontrola równoczesnych operacji: W przypadku gdy kilku pracowników jednocześnie próbuje wydać ten sam produkt, aplikacja na bieżąco sprawdza jego dostępność, aby zapobiec wydaniu większej liczby sztuk, niż znajduje się w magazynie.
+WF-07 – jesli dwa pracownika sprobuje wydac 2 takie same towary to system nie pozwoli.
 
-WF-08 – Rejestr operacji magazynowych: Każda operacja przyjęcia lub wydania towaru jest automatycznie zapisywana w historii. Zapis obejmuje datę i godzinę, identyfikator użytkownika, rodzaj operacji, produkt oraz jego ilość.
+WF-08 – Rejestr operacji magazynowych: Każda operacja przyjęcia lub wydania towaru jest automatycznie zapisywana w historii. Zapis obejmuje datę i godzinę, id pracownika, rodzaj operacji, produkt oraz jego ilość.
 
-WF-09 – Tworzenie zestawień magazynowych: System umożliwia wyświetlanie oraz przygotowywanie raportów zawierających informacje o aktualnej liczbie produktów dostępnych w magazynie.
+WF-09 – aktualna liczba palet na magazynie.
 
-WF-10 – Administracja kontami: Aplikacja pozwala na zakładanie nowych kont pracowników, zmianę ich danych, usuwanie kont, przywracanie dostępu poprzez reset hasła oraz określanie uprawnień poszczególnych użytkowników.
+WF-10 – administator umozliwia zarzadzaniem kontami pracownikow :resetowanie,tworzenie,usuwanie.
 
 Wymagania niefunkcjonalne=wnf
 
 WNF-01 – Wydajność działania: Operacje wyszukiwania towarów, odczytu kodów EAN oraz zapisywania zmian w systemie powinny być realizowane w czasie nie dłuższym niż 1–2 sekundy przy standardowym obciążeniu.
 
-WNF-02 – Ochrona dostępu: System musi zabezpieczać dostęp do poszczególnych funkcji na podstawie przydzielonych ról. Każda osoba korzystająca z aplikacji powinna posiadać własne konto użytkownika.
+WNF-02 – baza danych musi haszowac danne i chronic. Każda osoba korzystająca z aplikacji powinna posiadać własne konto użytkownika.
 
-WNF-03 – Poprawność przechowywania danych: Baza danych powinna zapewniać wiarygodność informacji oraz chronić je przed powstawaniem niespójności i błędów podczas zapisu.
+WNF-03 – Poprawność przechowywania danych: Baza danych powinna zapewniać prawdziwa informacje oraz chronić je przed powstawaniem niespójności i błędów podczas zapisu.
 
-WNF-04 – Łatwość obsługi: Interfejs powinien być czytelny i intuicyjny, tak aby pracownicy mogli sprawnie wyszukiwać towary oraz rejestrować ich przyjęcia i wydania bez zbędnych czynności.
+WNF-04 – latwo znalesc towar w programie intuicyjnie
 
-WNF-05 – Niezawodność i dostępność: System powinien być dostępny przez co najmniej 99,5% czasu pracy magazynu hurtowni.
+WNF-05 – 99.5% czasu powinien dzialac system
 
 Aktorzy systemu
 
