@@ -1,47 +1,41 @@
-Yehor Havryleichenko – Elektro-Bud
+Wymagania funkcjonalne=wf
 
-Wstępny opis potrzeb klienta
+WF-01 – Uwierzytelnianie użytkowników: Aplikacja pozwala na dostęp do systemu po podaniu indywidualnego loginu oraz hasła.
 
-Analiza
+WF-02 – Ewidencja asortymentu: System daje możliwość tworzenia nowych pozycji towarowych, aktualizowania ich danych oraz usuwania produktów z bazy. Każdy produkt posiada nazwę, kategorię, numer EAN oraz oznaczenie miejsca przechowywania (S – sektor, R – regał, P – półka).
 
-Wymagania funkcjonalne
+WF-03 – Wyszukiwanie produktów: Użytkownik może odnaleźć wybrany towar, korzystając z jego nazwy, numeru EAN, przypisanej kategorii lub informacji o lokalizacji magazynowej.
 
-WF01 – Logowanie: System pozwala użytkownikom logować się na indywidualne konta za pomocą loginu i hasła.
+WF-04 – Rejestrowanie dostaw: Podczas przyjmowania towaru system zapisuje dane produktu, liczbę przyjętych sztuk, datę operacji oraz dane pracownika odpowiedzialnego za jej wykonanie. Po zatwierdzeniu dostawy stan magazynowy zostaje odpowiednio zwiększony.
 
-WF02 – Wyszukiwanie towaru: System umożliwia wyszukiwanie produktów według nazwy, kodu EAN, kategorii oraz lokalizacji magazynowej.
+WF-05 – Ewidencja wydań: Program umożliwia zapisywanie operacji przekazania produktów klientom. Rejestrowane są informacje o wydanym towarze, jego ilości, dacie wydania oraz pracowniku realizującym operację.
 
-WF03 – Zarządzanie produktami: System umożliwia dodawanie, edytowanie i usuwanie produktów wraz z ich danymi, takimi jak nazwa, kategoria, kod EAN oraz lokalizacja (S – sektor, R – regał, P – półka).
+WF-06 – Sprawdzanie dostępności towarów: System nie pozwala zatwierdzić wydania, jeśli liczba sztuk wskazana w operacji jest większa od aktualnego stanu magazynowego.
 
-WF04 – Przyjęcie dostawy: System pozwala rejestrować przyjęcie towaru, zapisując jego identyfikator, ilość, datę oraz pracownika odpowiedzialnego za przyjęcie. Stan magazynowy produktu zostaje automatycznie zwiększony.
+WF-07 – Kontrola równoczesnych operacji: W przypadku gdy kilku pracowników jednocześnie próbuje wydać ten sam produkt, aplikacja na bieżąco sprawdza jego dostępność, aby zapobiec wydaniu większej liczby sztuk, niż znajduje się w magazynie.
 
-WF05 – Historia operacji: System automatycznie zapisuje wszystkie operacje przyjęcia i wydania towarów, uwzględniając datę, godzinę, identyfikator użytkownika, typ zdarzenia, produkt oraz jego ilość.
+WF-08 – Rejestr operacji magazynowych: Każda operacja przyjęcia lub wydania towaru jest automatycznie zapisywana w historii. Zapis obejmuje datę i godzinę, identyfikator użytkownika, rodzaj operacji, produkt oraz jego ilość.
 
-WF06 – Zarządzanie kontami użytkowników: System umożliwia tworzenie, edytowanie i usuwanie kont pracowników, resetowanie haseł oraz przypisywanie odpowiednich ról.
+WF-09 – Tworzenie zestawień magazynowych: System umożliwia wyświetlanie oraz przygotowywanie raportów zawierających informacje o aktualnej liczbie produktów dostępnych w magazynie.
 
-WF07 – Wydanie towaru: System umożliwia rejestrowanie wydań produktów klientom, zapisując identyfikator towaru, wydaną ilość, datę oraz pracownika realizującego operację.
+WF-10 – Administracja kontami: Aplikacja pozwala na zakładanie nowych kont pracowników, zmianę ich danych, usuwanie kont, przywracanie dostępu poprzez reset hasła oraz określanie uprawnień poszczególnych użytkowników.
 
-WF08 – Kontrola stanów magazynowych: System uniemożliwia zatwierdzenie wydania, jeśli żądana ilość towaru jest większa niż jego aktualna dostępność w magazynie.
+Wymagania niefunkcjonalne=wnf
 
-WF09 – Raportowanie: System umożliwia przeglądanie i generowanie raportów przedstawiających aktualne stany magazynowe.
+WNF-01 – Wydajność działania: Operacje wyszukiwania towarów, odczytu kodów EAN oraz zapisywania zmian w systemie powinny być realizowane w czasie nie dłuższym niż 1–2 sekundy przy standardowym obciążeniu.
 
-WF10 – Obsługa jednoczesnych operacji: System sprawdza aktualną dostępność produktów w czasie rzeczywistym, gdy kilku pracowników próbuje wydać ten sam towar.
+WNF-02 – Ochrona dostępu: System musi zabezpieczać dostęp do poszczególnych funkcji na podstawie przydzielonych ról. Każda osoba korzystająca z aplikacji powinna posiadać własne konto użytkownika.
 
-Wymagania niefunkcjonalne
+WNF-03 – Poprawność przechowywania danych: Baza danych powinna zapewniać wiarygodność informacji oraz chronić je przed powstawaniem niespójności i błędów podczas zapisu.
 
-WNF01 – Bezpieczeństwo: Dostęp do poszczególnych funkcji systemu jest kontrolowany za pomocą ról, a każdy użytkownik musi posiadać własne, unikalne konto.
+WNF-04 – Łatwość obsługi: Interfejs powinien być czytelny i intuicyjny, tak aby pracownicy mogli sprawnie wyszukiwać towary oraz rejestrować ich przyjęcia i wydania bez zbędnych czynności.
 
-WNF02 – Wydajność: Czas odpowiedzi systemu podczas wyszukiwania produktów, odczytu kodu EAN oraz rejestrowania operacji nie powinien przekraczać 1–2 sekund przy typowym obciążeniu.
+WNF-05 – Niezawodność i dostępność: System powinien być dostępny przez co najmniej 99,5% czasu pracy magazynu hurtowni.
 
-WNF03 – Użyteczność: Interfejs systemu powinien być przejrzysty i prosty w obsłudze, aby umożliwić szybkie rejestrowanie przyjęć oraz wydań towarów.
+Aktorzy systemu
 
-WNF04 – Spójność danych: System powinien korzystać z bazy danych zapewniającej poprawność, spójność i wiarygodność przechowywanych informacji.
+Pracownik magazynu – Wykonuje codzienne operacje związane z przepływem towarów. Za pomocą aplikacji wyszukuje produkty, sprawdza miejsca ich składowania oraz zapisuje przyjęcia dostaw i wydania produktów do realizacji zamówień.
 
-WNF05 – Dostępność: System powinien zapewniać dostępność na poziomie co najmniej 99,5% w godzinach pracy magazynu hurtowni.
+Kierownik magazynu – Nadzoruje stan i organizację zapasów. Jest odpowiedzialny za uzupełnianie oraz aktualizowanie katalogu produktów, kontrolowanie ilości dostępnego towaru i przygotowywanie raportów magazynowych.
 
-Aktorzy
-
-Kierownik magazynu: Odpowiada za kontrolowanie gospodarki magazynowej. Może dodawać nowe produkty, aktualizować informacje o asortymencie, sprawdzać bieżące stany magazynowe oraz generować raporty.
-
-Pracownik magazynu: Zajmuje się fizyczną obsługą towarów. Korzystając z systemu, wyszukuje produkty, sprawdza ich położenie, rejestruje przyjęcia dostaw i wydania towarów do zamówień.
-
-Administrator: Odpowiada za prawidłowe działanie systemu oraz zarządzanie dostępem. Tworzy i edytuje konta użytkowników, usuwa konta, przydziela uprawnienia i resetuje hasła.
+Administrator systemu – Dba o prawidłowe funkcjonowanie aplikacji oraz kontroluje dostęp użytkowników. Może zakładać i modyfikować konta, usuwać użytkowników, przydzielać role oraz przeprowadzać procedurę resetowania haseł.
